@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="shortcut icon" href="#">
     <title>Kocurro Adoption</title>
 </head>
 <body>
@@ -36,17 +37,17 @@
                
                 <div class="castration">
                     <label for="castration" >Castration:</label>
-                    <input type="radio" id="yes" name="castration" value="true" checked>
+                    <input type="radio"  name="castration" value="true" checked>
                     <label for="yes">Yes</label>
-                    <input type="radio" id="no" name="castration" value="false">
+                    <input type="radio" name="castration" value="false">
                     <label for="no">No</label>
                 </div>
                 
                 <div class="vaccinated">
                     <label for="vaccinated" >Vaccinated:</label>
-                    <input type="radio" id="yes" name="vaccinated" value="true" checked>
+                    <input type="radio" name="vaccinated" value="true" checked>
                     <label for="yes">Yes</label>
-                    <input type="radio" id="no" name="vaccinated" value="false">
+                    <input type="radio" name="vaccinated" value="false">
                     <label for="no">No</label>
                 </div>
                 
@@ -62,9 +63,9 @@
 
                 <div class="adopted">
                     <label for="adopted">Adopted:</label>
-                    <input type="radio" id="yes" name="adopted" value="true" checked>
+                    <input type="radio"  name="adopted" value="true" checked>
                     <label for="yes">Yes</label>
-                    <input type="radio" id="no" name="adopted" value="false">
+                    <input type="radio" name="adopted" value="false">
                     <label for="no">No</label>
                 </div> 
 
@@ -76,12 +77,29 @@
                 <button class="submit btn" type="submit">Submit</button>
             </form>
         </div>
+
+        <div class="form no-show" style="margin-top: 100px">
+            <span class="close">X</span>
+            <form class="logForm">
+                <div class="login">
+                    <label for="login">Login:</label>
+                    <input type="mail" name="login" required> 
+                </div>
+                         
+                <div class="password">
+                    <label for="password">Password</label>
+                    <input type="password" name="password">
+                </div>
+                         
+                <button class="logAdm btn" type="submit">Log in</button>
+            </form>
+        </div>
     </main>
     <footer>
         <p>To adopt kocurros, <br/>please contact us at <a href="mailto:kocurros@adopt.com">kocurros@adopt.com</a></p>
         <div class="icons">
-            <i class="fas fa-plus-circle add"></i>
-            <i class="fas fa-user-cog login"></i>
+            <i class="fas fa-plus-circle add no-show"></i>
+            <i class="fas fa-user-cog loginBtn"></i>
             <i class="fas fa-sign-out-alt logout no-show"></i>
         </div>
        
