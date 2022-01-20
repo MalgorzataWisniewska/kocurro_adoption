@@ -4,11 +4,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Kocurro Adoption</title>
 </head>
 <body>
-    <h1>Adopt A Kocurro</h1>
+    <header>
+        <h1>Adopt A Kocurro</h1>
+    </header>
+    <main>
+        <div class="catList">
+        
+        </div>
 
+        <div class="form no-show" style="margin-top: 100px">
+            <span class="close">X</span>
+            <form class="quest">
+                <div class="catname">
+                    <label for="catname">Name:</label>
+                    <input type="text" name="catname" required> 
+                </div>
+                
+                <div class="age">
+                    <label for="age">Cat's age:</label>
+                    <input type="number" id="name" name="age" required min="0" max="25"> 
+                </div>
+
+                <div class="photo">
+                    <label for="photo">Choose a picture:</label>
+                    <input type="file" id="photo" name="imgURL" required>
+                 </div> 
+               
+                <div class="castration">
+                    <label for="castration" >Castration:</label>
+                    <input type="radio" id="yes" name="castration" value="true" checked>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="castration" value="false">
+                    <label for="no">No</label>
+                </div>
+                
+                <div class="vaccinated">
+                    <label for="vaccinated" >Vaccinated:</label>
+                    <input type="radio" id="yes" name="vaccinated" value="true" checked>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="vaccinated" value="false">
+                    <label for="no">No</label>
+                </div>
+                
+                <div class="likes_cats">
+                    <label for="likes_cats">Likes other cats?</label>
+                    <input type="text" name="likes_cats" required>
+                </div>
+
+                <div class="likes_dogs">
+                    <label for="likes_dogs">Likes dogs?</label>
+                    <input type="text" name="likes_dogs" required> 
+                </div>
+
+                <div class="adopted">
+                    <label for="adopted">Adopted:</label>
+                    <input type="radio" id="yes" name="adopted" value="true" checked>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="adopted" value="false">
+                    <label for="no">No</label>
+                </div> 
+
+                <div class="notes">
+                    <label for="notes">Notes</label>
+                    <input type="text" name="notes">
+                </div>
+                             
+                <button class="submit btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>To adopt kocurros, <br/>please contact us at <a href="mailto:kocurros@adopt.com">kocurros@adopt.com</a></p>
+        <div class="icons">
+            <i class="fas fa-plus-circle add"></i>
+            <i class="fas fa-user-cog login"></i>
+            <i class="fas fa-sign-out-alt logout no-show"></i>
+        </div>
+       
+    </footer>
     <script src="bundle.js"></script>
 </body>
 </html>
