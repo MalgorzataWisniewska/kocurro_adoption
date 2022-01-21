@@ -66,12 +66,13 @@ const showData = (cat) => {
     <div class="img" style="background-image: url(${cat.imgURL});"></div>
       <div class="description">
         <p>${cat.cat_name}</p>
+        <p>${cat.gender}
         <p>Age: ${cat.age}</p>
-        <p>Castration: ${cat.castration}</p>
+        <p>Status: ${cat.adopted}</p>
+        <p>Castration: ${cat.castrated}</p>
         <p>Vaccinated: ${cat.vaccinated}</p>
         <p>Likes other cats: ${cat.likes_cats}</p>
         <p>Likes dogs: ${cat.likes_dogs}</p>
-        <p>Notes: ${cat.notes}</p>
       </div>
     </div>
     `;
@@ -125,13 +126,13 @@ form.addEventListener("submit", (e) => {
   const file = e.target.imgURL.files[0];
   let cat = {
     cat_name: e.target.catname.value.trim(),
-    age: e.target.age.value,
-    castration: e.target.castration.value,
-    vaccinated: e.target.vaccinated.value,
-    likes_cats: e.target.likes_cats.value.trim(),
-    likes_dogs: e.target.likes_dogs.value.trim(),
-    adopted: e.target.adopted.value,
-    notes: e.target.notes.value.trim(),
+    gender: e.target.gender.value,
+    age: Number(e.target.age.value),
+    castrated: e.target.castrated.value === "true",
+    vaccinated: e.target.vaccinated.value === "true",
+    likes_cats: e.target.likes_cats.value === "true",
+    likes_dogs: e.target.likes_dogs.value === "true",
+    adopted: e.target.adopted.value === "true",
   };
   subBtn.textContent = "Uploading...";
   uploadFiles(file, cat);
@@ -154,19 +155,26 @@ showLog.addEventListener("click", (e) => {
 
 //login admin
 const logForm = document.getElementsByClassName("logForm")[0];
+const loginErr = document.getElementsByClassName("mssg")[0];
 logForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  showLog.classList.add("no-show");
   const mail = logForm.login.value;
   const password = logForm.password.value;
   signInWithEmailAndPassword(auth, mail, password)
     .then((cred) => {
       console.log("Admin logged in!:", cred.user);
+      showLog.classList.add("no-show");
       logoutBtn.classList.remove("no-show");
       showForm.classList.remove("no-show");
       closeForm(logForm);
     })
-    .catch((err) => console.log(err.message));
+    .catch((err) => {
+      loginErr.textContent = err.message.split("/")[1].slice(0, -2);
+      setTimeout(() => {
+        logForm.reset();
+        loginErr.textContent = "";
+      }, 1000);
+    });
 });
 
 //logout admin

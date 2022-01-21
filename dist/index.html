@@ -22,12 +22,20 @@
             <form class="quest">
                 <div class="catname">
                     <label for="catname">Name:</label>
-                    <input type="text" name="catname" required> 
+                    <input type="text" id="catname" name="catname" required> 
+                </div>
+
+                <div class="gender">
+                    <label for="gender" >Gender</label>
+                    <input type="radio" id="gen_yes" name="gender" value="male" checked>
+                    <label for="gen_yes">Male</label>
+                    <input type="radio" id="gen_no" name="gender" value="female">
+                    <label for="gen_no">Female</label>
                 </div>
                 
                 <div class="age">
-                    <label for="age">Cat's age:</label>
-                    <input type="number" id="name" name="age" required min="0" max="25"> 
+                    <label for="age">Cat's age in years:</label>
+                    <input type="number" id="age" name="age" required min="0" max="25"> 
                 </div>
 
                 <div class="photo">
@@ -35,45 +43,46 @@
                     <input type="file" id="photo" name="imgURL" required>
                  </div> 
                
-                <div class="castration">
-                    <label for="castration" >Castration:</label>
-                    <input type="radio"  name="castration" value="true" checked>
-                    <label for="yes">Yes</label>
-                    <input type="radio" name="castration" value="false">
-                    <label for="no">No</label>
+                <div class="castrated">
+                    <label for="castrated">Castrated</label>
+                    <input type="radio" id="cast_yes" name="castrated" value="true" checked>
+                    <label for="cast_yes">Yes</label>
+                    <input type="radio" id="cast_no" name="castrated" value="false">
+                    <label for="cast_no">No</label>
                 </div>
                 
                 <div class="vaccinated">
-                    <label for="vaccinated" >Vaccinated:</label>
-                    <input type="radio" name="vaccinated" value="true" checked>
-                    <label for="yes">Yes</label>
-                    <input type="radio" name="vaccinated" value="false">
-                    <label for="no">No</label>
+                    <label for="vaccinated" >Vaccinated</label>
+                    <input type="radio" id="vacc_yes" name="vaccinated" value="true" checked>
+                    <label for="vacc_yes">Yes</label>
+                    <input type="radio" id="vacc_no" name="vaccinated" value="false">
+                    <label for="vacc_no">No</label>
                 </div>
                 
                 <div class="likes_cats">
                     <label for="likes_cats">Likes other cats?</label>
-                    <input type="text" name="likes_cats" required>
+                    <input type="radio" id="likes_cats_yes" name="likes_cats" value="true" checked>
+                    <label for="likes_cats_yes">Yes</label>
+                    <input type="radio" id="likes_cats_no" name="likes_cats" value="false">
+                    <label for="likes_cats_no">No</label>
                 </div>
 
                 <div class="likes_dogs">
                     <label for="likes_dogs">Likes dogs?</label>
-                    <input type="text" name="likes_dogs" required> 
+                    <input type="radio" id="likes_dogs_yes" name="likes_dogs" value="true" checked>
+                    <label for="likes_dogs_yes">Yes</label>
+                    <input type="radio" id="likes_dogs_no" name="likes_dogs" value="false">
+                    <label for="likes_dogs_no">No</label>
                 </div>
 
                 <div class="adopted">
                     <label for="adopted">Adopted:</label>
-                    <input type="radio"  name="adopted" value="true" checked>
-                    <label for="yes">Yes</label>
-                    <input type="radio" name="adopted" value="false">
-                    <label for="no">No</label>
+                    <input type="radio" id="ad_yes" name="adopted" value="true" checked>
+                    <label for="ad_yes">Yes</label>
+                    <input type="radio" id="ad_no" name="adopted" value="false">
+                    <label for="ad_no">No</label>
                 </div> 
 
-                <div class="notes">
-                    <label for="notes">Notes</label>
-                    <input type="text" name="notes">
-                </div>
-                             
                 <button class="submit btn" type="submit">Submit</button>
             </form>
         </div>
@@ -92,6 +101,7 @@
                 </div>
                          
                 <button class="logAdm btn" type="submit">Log in</button>
+                <div class="mssg"></div>
             </form>
         </div>
     </main>
