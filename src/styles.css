@@ -1,12 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Oxygen, Arial, Helvetica, sans-serif;
+}
+
+header h1 {
+  font-family: Lobster, Arial, Helvetica, sans-serif;
 }
 
 header,
 footer {
-  background-color: darkslategray;
+  background-color: #116530;
   color: white;
   height: 5rem;
   font-size: 16px;
@@ -17,42 +25,140 @@ footer {
 }
 
 header {
+  position: sticky;
   top: 0;
-  position: fixed;
   width: 100%;
+  z-index: 2;
 }
 
 /* catList */
+
 .catList {
-  margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
   justify-content: space-evenly;
+  gap: 3vw;
+  margin-left: 5vw;
+  width: 90vw;
+  margin-top: 50px;
 }
 
-.img {
-  background-color: darksalmon;
-  background-repeat: no-repeat;
-  background-size: cover;
+.card_img {
+  width: 300px;
+  height: 300px;
   background-position: center;
-  height: 200px;
+  background-size: cover;
+  border-radius: 20px 20px 0 0;
 }
 
-.description {
-  padding: 10px;
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+  border-radius: 0 0 20px 20px;
 }
-.cat {
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #e8e8cc;
+  color: #424643;
+  border-radius: 0 0 20px 20px;
+}
+
+.flip-card-front p {
+  padding: 0.5rem 0;
+}
+
+.flip-card-front i.fa-mouse-pointer {
+  position: absolute;
+  top: 10rem;
+  right: 0.1rem;
+  color: orange;
+  font-size: 1.8rem;
+}
+
+.flip-card-back {
+  background-color: #e8e8cc;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 0 0 20px 20px;
+}
+
+.oval {
   width: 200px;
-  border: solid gray 2px;
-  border-radius: 5px;
+  height: auto;
+  border-radius: 10px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.oval.false {
+  background-color: #ffcc1d;
+  color: #116530;
+  box-shadow: inset 0 0 1em orange;
+}
+
+.oval.true {
+  background-color: #116530;
+  color: #e8e8cc;
+}
+
+p[name|="catname"] {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: Lobster, Arial, Helvetica, sans-serif;
+}
+
+p.status {
+  margin-top: 1rem;
+}
+
+.status {
+  display: block;
+  width: 100%;
+  background-color: #0b4619;
+  color: #e8e8cc;
+  padding: 0.5rem 0;
+  font-weight: bold;
+}
+
+.flip-card-front i {
+  padding-right: 1rem;
 }
 
 /* form */
 .close {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0.2rem;
+  right: 0.2rem;
+  color: #ffcc1d;
+  font-size: 1.2rem;
 }
 
 .close:hover {
@@ -60,15 +166,16 @@ header {
 }
 
 .form {
-  position: absolute;
-  top: 0;
-  height: minmax(70vh, auto);
-  left: 20vw;
-  width: 60vw;
-  background-color: white;
-  border: solid black 3px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e8e8cc;
+  box-shadow: 0 0 1rem #ffcc1d;
   font-size: 1.5rem;
-  z-index: 1;
+  z-index: 3;
+  width: 60vw;
+  min-width: 150px;
 }
 
 .quest {
@@ -83,26 +190,37 @@ button {
   display: block;
   font-size: 1rem;
   border-radius: 0.5rem;
-  background-color: dimgrey;
+  background-color: #116530;
   color: white;
-  padding: 0.8rem;
+  padding: 0.4rem 0.8rem;
   text-align: center;
   margin: 0 auto;
+}
+
+/*login form*/
+.loginF {
+  text-align: center;
+  top: 30%;
+}
+
+i.fas.fa-cat::before {
+  display: block;
+  color: #ffcc1d;
+  font-size: 5rem;
+  padding: 2rem;
 }
 
 /* footer */
 footer {
   display: flex;
   justify-content: space-around;
-  margin-top: 200px;
-  position: sticky;
-  bottom: 30px;
+  margin-top: 50px;
 }
 
-i {
+footer i {
   padding-left: 5rem;
 }
-i:hover {
+footer i:hover {
   cursor: pointer;
 }
 

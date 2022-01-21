@@ -62,19 +62,51 @@ const realTimeGetData = onSnapshot(colRef, (snapshot) => {
 
 const showData = (cat) => {
   const html = `
-    <div class="cat" name=${cat.id}>
-    <div class="img" style="background-image: url(${cat.imgURL});"></div>
-      <div class="description">
-        <p>${cat.cat_name}</p>
-        <p>${cat.gender}
-        <p>Age: ${cat.age}</p>
-        <p>Status: ${cat.adopted}</p>
-        <p>Castration: ${cat.castrated}</p>
-        <p>Vaccinated: ${cat.vaccinated}</p>
-        <p>Likes other cats: ${cat.likes_cats}</p>
-        <p>Likes dogs: ${cat.likes_dogs}</p>
+  <div class="cont">
+  <div class="card_img" style="background-image: url(${cat.imgURL});"></div>
+
+  <div class="flip-card">
+      <div class="cat flip-card-inner" name="cat">
+          <div class="flip-card-front">
+              <i class="fas fa-mouse-pointer"></i>
+              <p name="catname">${cat.cat_name}</p>
+              <p><i class="fas fa-venus-mars"></i>${
+                cat.gender === "female" ? "Girl" : "Boy"
+              }</p>
+              <p><i class="fas fa-birthday-cake"></i>${
+                cat.age === 0
+                  ? "kitten"
+                  : cat.age === 1
+                  ? cat.age + " year old"
+                  : cat.age + " years old"
+              }</p>
+              <p class="status">${cat.status ? "Adopted" : "For adoption"}</p>
+          </div>
+          <div class="flip-card-back">
+              ${
+                cat.castrated
+                  ? "<div class='oval true'>Castrated</div>"
+                  : "<div class='oval false'>Need castration</div>"
+              }
+              ${
+                cat.vaccinated
+                  ? "<div class='oval true'>Vaccinated</div>"
+                  : "<div class='oval false'>Need vaccination</div>"
+              }
+              ${
+                cat.likes_cats
+                  ? "<div class='oval true'>Likes other cats</div>"
+                  : "<div class='oval false'>Doesn't like other cats</div>"
+              }
+              ${
+                cat.likes_dogs
+                  ? "<div class='oval true'>Likes dogs</div>"
+                  : "<div class='oval false'>Doesn't like dogs</div>"
+              }
+          </div>
       </div>
-    </div>
+  </div>
+</div>
     `;
   catlist.innerHTML += html;
 };
