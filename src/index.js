@@ -48,15 +48,22 @@ const colRef = collection(db, "kocurros");
 
 // get data (that whould be getDocs) but in real time (onSnapshot)
 const catlist = document.getElementsByClassName("catList")[0];
+const mainMssg = document.getElementsByClassName("mainMssg")[0];
 
-const realTimeGetData = onSnapshot(colRef, (snapshot) => {
-  catlist.innerHTML = "";
-  let kocurros = [];
-  snapshot.docs.forEach((doc) => {
-    kocurros.push({ ...doc.data(), id: doc.id });
-  });
-  kocurros.forEach((cat) => showData(cat));
-});
+const realTimeGetData = onSnapshot(
+  colRef,
+  (snapshot) => {
+    catlist.innerHTML = "";
+    let kocurros = [];
+    snapshot.docs.forEach((doc) => {
+      kocurros.push({ ...doc.data(), id: doc.id });
+    });
+    kocurros.forEach((cat) => showData(cat));
+  },
+  (err) => {
+    mainMssg.textContent = err.message;
+  }
+);
 
 //show data
 
@@ -152,7 +159,9 @@ const uploadFiles = (file, cat) => {
         addDoc(colRef, { ...cat, imgURL: downloadURL })
           .then(() => {
             closeForm(form);
+            photoIcon.classList.remove("added");
             form.getElementsByTagName("button")[0].textContent = "Submit";
+            form.getElementsByTagName("button")[0].removeAttribute("disabled");
           })
           .catch((err) => err.message);
       });
@@ -160,8 +169,14 @@ const uploadFiles = (file, cat) => {
   );
 };
 
+const setBtn = () => {
+  subBtn.setAttribute("disabled", true);
+  subBtn.textContent = "Uploading...";
+};
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
   const file = e.target.imgURL.files[0];
   let cat = {
     cat_name: e.target.catname.value.trim(),
@@ -173,7 +188,7 @@ form.addEventListener("submit", (e) => {
     likes_dogs: e.target.likes_dogs.value === "true",
     adopted: e.target.adopted.value === "true",
   };
-  subBtn.textContent = "Uploading...";
+  setBtn();
   uploadFiles(file, cat);
 });
 
@@ -201,7 +216,7 @@ logForm.addEventListener("submit", (e) => {
   const password = logForm.password.value;
   signInWithEmailAndPassword(auth, mail, password)
     .then((cred) => {
-      console.log("Admin logged in!:", cred.user);
+      console.log("Admin logged in!");
       showLog.classList.add("no-show");
       logoutBtn.classList.remove("no-show");
       showForm.classList.remove("no-show");
