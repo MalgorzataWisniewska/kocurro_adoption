@@ -8,6 +8,10 @@
   font-family: Oxygen, Arial, Helvetica, sans-serif;
 }
 
+.no-show {
+  display: none;
+}
+
 header h1 {
   font-family: Lobster, Arial, Helvetica, sans-serif;
 }
@@ -164,29 +168,32 @@ p.status {
 .close:hover {
   cursor: pointer;
 }
-
 .form {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   background-color: #e8e8cc;
-  box-shadow: 0 0 1rem #ffcc1d;
+  box-shadow: 0.25rem 0.25rem 0.25rem 0 #ffcc1d;
   font-size: 1.5rem;
   z-index: 3;
   width: 60vw;
-  min-width: 150px;
+  min-width: 320px;
+  border-top: solid 1px #ffcc1d;
+  border-left: solid 1px #ffcc1d;
 }
 
-.quest {
-  margin-left: 20%;
-  margin-right: 20%;
-}
-.quest div {
-  padding: 10px;
+.form div {
+  padding: 0.5rem;
 }
 
-button {
+.form h3 {
+  text-align: center;
+  font-family: Lobster;
+  padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+}
+.form .btn {
   display: block;
   font-size: 1rem;
   border-radius: 0.5rem;
@@ -194,7 +201,67 @@ button {
   color: white;
   padding: 0.4rem 0.8rem;
   text-align: center;
-  margin: 0 auto;
+  margin: 1rem auto;
+  margin-bottom: 1rem;
+}
+
+.form label,
+.logForm .mssg {
+  font-size: 1.2rem;
+}
+
+.form input,
+.form input:focus {
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  padding: 0.3rem;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"] {
+  width: 10rem;
+}
+
+/* quest */
+.form .quest {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.quest div {
+  padding: 0.5rem;
+  margin: 0 3rem;
+}
+
+.form .quest i {
+  background-color: #116530;
+  padding: 0.5rem;
+  border-radius: 100%;
+  color: white;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.form .quest i.added {
+  color: #ffcc1d;
+}
+
+.quest button,
+.quest div.catname {
+  grid-column: 1 / span 2;
+}
+
+.quest div.catname {
+  margin: 0.5rem auto;
+}
+
+.quest div.catname input {
+  font-size: 1.5rem;
+}
+
+input[type="file"] {
+  display: none;
 }
 
 /*login form*/
@@ -224,6 +291,74 @@ footer i:hover {
   cursor: pointer;
 }
 
-.no-show {
-  display: none;
+footer a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1200px) {
+  .quest label,
+  .quest input {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  .form .quest {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .quest button,
+  .quest div.catname {
+    grid-column: 1 / span 1;
+  }
+  .quest div.catname input {
+    font-size: 1.2rem;
+  }
+  .logForm label,
+  .logForm input,
+  .form .mssg {
+    font-size: 0.9rem;
+  }
+  .quest label,
+  .quest input {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .logForm label {
+    display: block;
+  }
+  .form {
+    width: 90vw;
+  }
+  .quest label,
+  .quest input {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .icons .loginBtn,
+  .icons .add,
+  .icons .logout {
+    position: fixed;
+    background-color: #ffcc1d;
+    border-radius: 100%;
+    padding: 0.7rem;
+  }
+  .icons .loginBtn,
+  .icons .logout {
+    right: 0.5rem;
+    bottom: 1.5rem;
+  }
+
+  .icons .add {
+    right: 0.5rem;
+    bottom: 4rem;
+  }
 }

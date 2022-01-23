@@ -18,33 +18,42 @@
         </div>
 
         <div class="form no-show">
+            <h3>Add a kocurro</h3>
             <span class="close"><i class="far fa-times-circle"></i></span>
             <form class="quest">
                 <div class="catname">
-                    <label for="catname">Name:</label>
+                    <label for="catname">Name</label>
                     <input type="text" id="catname" name="catname" required> 
                 </div>
-
+    
+                <div class="age">
+                    <label for="age">Age in years</label>
+                    <input type="number" id="age" name="age" required min="0" max="25"> 
+                </div>
                 <div class="gender">
-                    <label for="gender" >Gender</label>
+                    <label for="gender">Gender</label>
                     <input type="radio" id="gen_yes" name="gender" value="male" checked>
                     <label for="gen_yes">Male</label>
                     <input type="radio" id="gen_no" name="gender" value="female">
                     <label for="gen_no">Female</label>
                 </div>
                 
-                <div class="age">
-                    <label for="age">Cat's age in years:</label>
-                    <input type="number" id="age" name="age" required min="0" max="25"> 
-                </div>
-
+                <div class="adopted">
+                    <label for="adopted">Adopted?</label>
+                    <input type="radio" id="ad_yes" name="adopted" value="true" checked>
+                    <label for="ad_yes">Yes</label>
+                    <input type="radio" id="ad_no" name="adopted" value="false">
+                    <label for="ad_no">No</label>
+                </div> 
+    
                 <div class="photo">
-                    <label for="photo">Choose a picture:</label>
+                    <label for="photo">Choose a picture<i class="fas fa-camera-retro"></i></label>
+                    
                     <input type="file" id="photo" name="imgURL" required>
                  </div> 
                
                 <div class="castrated">
-                    <label for="castrated">Castrated</label>
+                    <label for="castrated">Castrated?</label>
                     <input type="radio" id="cast_yes" name="castrated" value="true" checked>
                     <label for="cast_yes">Yes</label>
                     <input type="radio" id="cast_no" name="castrated" value="false">
@@ -52,7 +61,7 @@
                 </div>
                 
                 <div class="vaccinated">
-                    <label for="vaccinated" >Vaccinated</label>
+                    <label for="vaccinated" >Vaccinated?</label>
                     <input type="radio" id="vacc_yes" name="vaccinated" value="true" checked>
                     <label for="vacc_yes">Yes</label>
                     <input type="radio" id="vacc_no" name="vaccinated" value="false">
@@ -66,7 +75,7 @@
                     <input type="radio" id="likes_cats_no" name="likes_cats" value="false">
                     <label for="likes_cats_no">No</label>
                 </div>
-
+    
                 <div class="likes_dogs">
                     <label for="likes_dogs">Likes dogs?</label>
                     <input type="radio" id="likes_dogs_yes" name="likes_dogs" value="true" checked>
@@ -74,27 +83,21 @@
                     <input type="radio" id="likes_dogs_no" name="likes_dogs" value="false">
                     <label for="likes_dogs_no">No</label>
                 </div>
-
-                <div class="adopted">
-                    <label for="adopted">Adopted:</label>
-                    <input type="radio" id="ad_yes" name="adopted" value="true" checked>
-                    <label for="ad_yes">Yes</label>
-                    <input type="radio" id="ad_no" name="adopted" value="false">
-                    <label for="ad_no">No</label>
-                </div> 
-
+    
+                
+    
                 <button class="submit btn" type="submit">Submit</button>
             </form>
         </div>
-
+    
         <div class="form loginF no-show" style="margin-top: 100px">
-            <i class="fas fa-cat"></i>
+            <h3>Admin login</h3>
             <span class="close"><i class="far fa-times-circle"></i></span>
           
             <form class="logForm">
                 <div class="login">
-                    <label for="login">Login:</label>
-                    <input type="mail" name="login" required> 
+                    <label for="login">Login</label>
+                    <input type="email" name="login" required> 
                 </div>
                          
                 <div class="password">
@@ -108,7 +111,7 @@
         </div>
     </main>
     <footer>
-        <p>To adopt kocurros, <br/>please contact us at <a href="mailto:kocurros@adopt.com">kocurros@adopt.com</a></p>
+        <p>To adopt kocurros, <br/>please contact us at <a href="mailto:frontenddev.mw@gmail.com">kocurros@adopt.com</a></p>
         <div class="icons">
             <i class="fas fa-plus-circle add no-show"></i>
             <i class="fas fa-user-cog loginBtn"></i>

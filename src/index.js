@@ -86,12 +86,12 @@ const showData = (cat) => {
               ${
                 cat.castrated
                   ? "<div class='oval true'>Castrated</div>"
-                  : "<div class='oval false'>Need castration</div>"
+                  : "<div class='oval false'>Needs castration</div>"
               }
               ${
                 cat.vaccinated
                   ? "<div class='oval true'>Vaccinated</div>"
-                  : "<div class='oval false'>Need vaccination</div>"
+                  : "<div class='oval false'>Needs vaccination</div>"
               }
               ${
                 cat.likes_cats
@@ -119,6 +119,13 @@ const subBtn = document.getElementsByClassName("submit")[0];
 
 showForm.addEventListener("click", () => {
   qFormCont.classList.remove("no-show");
+});
+
+const photo = document.getElementById("photo");
+const photoIcon = document.getElementsByClassName("fa-camera-retro")[0];
+
+photo.addEventListener("input", () => {
+  photoIcon.classList.add("added");
 });
 
 //closing form window
@@ -220,5 +227,3 @@ logoutBtn.addEventListener("click", (e) => {
     })
     .catch((err) => console.log(err.message));
 });
-
-//auth.currentUser
